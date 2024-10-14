@@ -1,3 +1,17 @@
 .checked {
     text-decoration: line-through;
 }
+
+.itemWrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.itemWrapper .deleteButton {
+    display: none;
+}
+
+.itemWrapper:hover .deleteButton {
+    display: block;
+}

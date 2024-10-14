@@ -1,10 +1,11 @@
 import { useMemo, useReducer, useState } from 'react';
 import { todoReducer } from './reducer';
 
-import './App.css';
 import { Input } from './components/Input/Input';
 import { ListOfItems } from './components/ListOfItems/ListOfItems';
 import { Filters } from './components/Filters/Filters';
+
+import './App.css';
 
 export type Tab = 'all' | 'active' | 'completed';
 
@@ -32,15 +33,18 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>todos</h1>
-      <Input dispatch={dispatch} placeholder={'What needs to be done?'} />
-      <ListOfItems todos={filteredItems} dispatch={dispatch} />
-      <Filters
-        todos={filteredItems}
-        dispatch={dispatch}
-        onTabChange={handleTabChange}
-      />
+    <div className="wrapper">
+      <h1 className="title">todos</h1>
+      <section>
+        <Input dispatch={dispatch} placeholder={'What needs to be done?'} />
+        <ListOfItems todos={filteredItems} dispatch={dispatch} />
+        <Filters
+          todos={filteredItems}
+          dispatch={dispatch}
+          onTabChange={handleTabChange}
+          activeTab={tab}
+        />
+      </section>
     </div>
   );
 }

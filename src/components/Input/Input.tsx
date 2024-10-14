@@ -1,6 +1,7 @@
 import { FC, useCallback } from 'react';
 import { TodoActionsTypes } from '../../constants';
 import { TodoAction } from '../../reducer';
+import { TextInput } from '@gravity-ui/uikit';
 
 interface InputProps {
   dispatch: React.Dispatch<TodoAction>;
@@ -27,6 +28,6 @@ export const Input: FC<InputProps> = ({ dispatch, placeholder }) => {
   );
 
   return (
-    <input type="text" placeholder={placeholder} onKeyDown={handleKeyDown} />
+    <TextInput placeholder={placeholder} size="xl" onKeyDown={handleKeyDown} />
   );
 };

@@ -3,6 +3,8 @@ import { Todo, TodoAction } from '../../reducer';
 import { TodoActionsTypes } from '../../constants';
 
 import './Item.css';
+import { Button, Checkbox, Icon } from '@gravity-ui/uikit';
+import { Xmark } from '@gravity-ui/icons';
 
 interface ItemProps {
   todo: Todo;
@@ -23,10 +25,17 @@ export const Item: FC<ItemProps> = ({ todo, dispatch }) => {
 
   return (
     <li>
-      <div>
-        <input type="checkbox" checked={completed} onChange={toggleItem} />
-        <span className={completed ? 'checked' : 'uncheked'}>{title}</span>
-        <button onClick={removeItem}>X</button>
+      <div className="itemWrapper">
+        <Checkbox
+          className={completed ? 'checked' : 'uncheked'}
+          content={title}
+          size="l"
+          checked={completed}
+          onChange={toggleItem}
+        />
+        <Button className="deleteButton" onClick={removeItem}>
+          <Icon data={Xmark} />
+        </Button>
       </div>
     </li>
   );
