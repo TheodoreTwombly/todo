@@ -27,6 +27,10 @@ export const todoReducer = (state: Todo[], action: TodoAction) => {
           ? { ...todo, completed: !todo.completed }
           : todo
       );
+    case TodoActionsTypes.CLEAR_COMPLETED_ITEMS:
+      return state.map((todo) =>
+        todo.completed ? { ...todo, completed: !todo.completed } : todo
+      );
     default:
       throw Error(`Unknown action: ${action.type}`);
   }

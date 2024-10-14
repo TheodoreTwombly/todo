@@ -1,12 +1,12 @@
 import { FC } from 'react';
-import { Todo, TodoAction } from '../reducer';
-import { Item } from './Item';
+import { Todo, TodoAction } from '../../reducer';
+import { Item } from '../Item/Item';
 
-interface ListOfTodosProps {
+interface ListOfitemsProps {
   todos: Todo[];
   dispatch: React.Dispatch<TodoAction>;
 }
-export const ListOfTodos: FC<ListOfTodosProps> = ({ todos, dispatch }) => {
+export const ListOfItems: FC<ListOfitemsProps> = ({ todos, dispatch }) => {
   return (
     <ul>
       {todos.map((todo) => (

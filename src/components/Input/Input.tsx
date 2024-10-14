@@ -1,6 +1,6 @@
 import { FC, useCallback } from 'react';
-import { TodoActionsTypes } from '../constants';
-import { TodoAction } from '../reducer';
+import { TodoActionsTypes } from '../../constants';
+import { TodoAction } from '../../reducer';
 
 interface InputProps {
   dispatch: React.Dispatch<TodoAction>;

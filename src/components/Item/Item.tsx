@@ -1,6 +1,8 @@
 import { FC, useCallback } from 'react';
-import { Todo, TodoAction } from '../reducer';
-import { TodoActionsTypes } from '../constants';
+import { Todo, TodoAction } from '../../reducer';
+import { TodoActionsTypes } from '../../constants';
+
+import './Item.css';
 
 interface ItemProps {
   todo: Todo;
@@ -23,7 +25,8 @@ export const Item: FC<ItemProps> = ({ todo, dispatch }) => {
     <li>
       <div>
         <input type="checkbox" checked={completed} onChange={toggleItem} />
-        <span>{title}</span> <button onClick={removeItem}>X</button>
+        <span className={completed ? 'checked' : 'uncheked'}>{title}</span>
+        <button onClick={removeItem}>X</button>
       </div>
     </li>
   );
