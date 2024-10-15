@@ -6,6 +6,14 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
+    height: 30px;
+}
+
+.label { 
+    width: 360px;
+    text-overflow: ellipsis;
+    white-space: wrap;
+    overflow: hidden; 
 }
 
 .itemWrapper .deleteButton {

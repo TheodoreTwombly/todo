@@ -33,7 +33,7 @@ export const Filters: FC<FiltersProps> = ({
 
   return (
     <div className="filtersWrapper">
-      <div>{howMuchLeftTitle}</div>
+      <div className="todosCountTitle">{howMuchLeftTitle}</div>
       <div>
         <Button
           className="button"

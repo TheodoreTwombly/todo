@@ -27,13 +27,18 @@ export const Item: FC<ItemProps> = ({ todo, dispatch }) => {
     <li>
       <div className="itemWrapper">
         <Checkbox
-          className={completed ? 'checked' : 'uncheked'}
+          className={completed ? 'checked label' : 'label'}
           content={title}
           size="l"
           checked={completed}
           onChange={toggleItem}
         />
-        <Button className="deleteButton" onClick={removeItem}>
+        <Button
+          view="flat"
+          size="xs"
+          className="deleteButton"
+          onClick={removeItem}
+        >
           <Icon data={Xmark} />
         </Button>
       </div>

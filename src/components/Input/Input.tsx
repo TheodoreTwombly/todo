@@ -15,7 +15,7 @@ export const Input: FC<InputProps> = ({ dispatch, placeholder }) => {
         const target = e.target as HTMLInputElement;
         const value = target.value.trim();
 
-        if (value.length < 2) return;
+        if (value.length < 1) return;
 
         dispatch({
           type: TodoActionsTypes.ADD_ITEM,
