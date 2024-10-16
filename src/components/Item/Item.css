@@ -5,13 +5,19 @@
 .itemWrapper {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
+    margin-bottom: 4px;
+    padding: 4px;
     min-height: 20px;
+    align-items: center;
+    border-radius: 6px;
+}
+
+.itemWrapper:hover {
+    background-color: var(--g-color-base-selection);
 }
 
 .label {
     margin: 0;
-    width: 360px;
     text-overflow: ellipsis;
     white-space: wrap;
     overflow: hidden; 
@@ -19,6 +25,7 @@
 
 .itemWrapper .deleteButton {
     display: none;
+    align-self: flex-start;
 }
 
 .itemWrapper:hover .deleteButton {
