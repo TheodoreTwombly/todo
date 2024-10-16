@@ -1,8 +1,7 @@
 import { FC, useCallback } from 'react';
-import { Todo, TodoAction } from '../../reducer';
-import { Tab } from '../../App';
-import { TodoActionsTypes } from '../../constants';
-import { Button } from '@gravity-ui/uikit';
+import { Todo, TodoAction } from '../../reducers/todoReducer';
+import { TodoActionsTypes, Tab } from '../../constants';
+import { Button, ControlGroupOption, RadioButton } from '@gravity-ui/uikit';
 
 import './Filters.css';
 
@@ -13,6 +12,11 @@ interface FiltersProps {
   activeTab?: Tab;
 }
 
+const options: ControlGroupOption<Tab>[] = Object.values(Tab).map((option) => ({
+  value: option,
+  content: option.charAt(0).toUpperCase() + option.slice(1),
+}));
+
 export const Filters: FC<FiltersProps> = ({
   todos,
   dispatch,
@@ -20,12 +24,8 @@ export const Filters: FC<FiltersProps> = ({
   activeTab,
 }) => {
   const amountOfUncheckedItems = todos.filter((item) => !item.completed).length;
-  const howMuchLeftTitle =
-    amountOfUncheckedItems > 1
-      ? `${amountOfUncheckedItems} items left`
-      : `${amountOfUncheckedItems} item left`;
 
-  const cleareCompleted = useCallback(
+  const clearCompleted = useCallback(
     () =>
       dispatch({ type: TodoActionsTypes.CLEAR_COMPLETED_ITEMS, payload: {} }),
     [dispatch]
@@ -33,34 +33,18 @@ export const Filters: FC<FiltersProps> = ({
 
   return (
     <div className="filtersWrapper">
-      <div className="todosCountTitle">{howMuchLeftTitle}</div>
+      <div className="countTitle">{`${amountOfUncheckedItems} item${
+        amountOfUncheckedItems > 1 ? 's' : ''
+      } left`}</div>
       <div>
-        <Button
-          className="button"
-          view="flat"
-          onClick={() => onTabChange('all')}
-          selected={activeTab === 'all'}
-        >
-          All
-        </Button>
-        <Button
-          className="button"
-          view="flat"
-          onClick={() => onTabChange('active')}
-          selected={activeTab === 'active'}
-        >
-          Active
-        </Button>
-        <Button
-          className="button"
-          view="flat"
-          onClick={() => onTabChange('completed')}
-          selected={activeTab === 'completed'}
-        >
-          Completed
-        </Button>
+        <RadioButton
+          defaultValue={options[0].value}
+          options={options}
+          value={activeTab}
+          onUpdate={onTabChange}
+        />
       </div>
-      <Button className="button" view="flat" onClick={cleareCompleted}>
+      <Button className="button" view="flat" onClick={clearCompleted}>
         Clear completed
       </Button>
     </div>

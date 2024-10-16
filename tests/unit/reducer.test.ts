@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
 import { TodoActionsTypes } from '../../src/constants';
-import { TodoAction, todoReducer } from '../../src/reducer';
+import { TodoAction, todoReducer } from '../../src/reducers/todoReducer';
 
 describe('todoReducer', () => {
   test('Добавить задачу', () => {

@@ -4,11 +4,7 @@
     justify-content: space-between;
 }
 
-.button {
-    font-size: 12px;
-}
-
-.todosCountTitle {
+.countTitle {
     display: flex;
     justify-content: center;
     align-items: center;

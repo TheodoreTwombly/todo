@@ -1,4 +1,4 @@
-import { TodoActionsTypes } from './constants.ts';
+import { TodoActionsTypes } from '../constants.ts';
 
 export interface Todo {
   id?: number;

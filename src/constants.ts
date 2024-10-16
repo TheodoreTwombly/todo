@@ -4,3 +4,9 @@ export const enum TodoActionsTypes {
   TOGGLE_ITEM = 'TOGGLE_ITEM',
   CLEAR_COMPLETED_ITEMS = 'CLEAR_COMPLETED_ITEMS',
 }
+
+export enum Tab {
+  All = 'all',
+  Active = 'active',
+  Completed = 'complited',
+}

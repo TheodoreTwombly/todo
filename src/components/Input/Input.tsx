@@ -1,6 +1,6 @@
 import { FC, useCallback } from 'react';
 import { TodoActionsTypes } from '../../constants';
-import { TodoAction } from '../../reducer';
+import { TodoAction } from '../../reducers/todoReducer';
 import { TextInput } from '@gravity-ui/uikit';
 
 interface InputProps {
@@ -15,12 +15,13 @@ export const Input: FC<InputProps> = ({ dispatch, placeholder }) => {
         const target = e.target as HTMLInputElement;
         const value = target.value.trim();
 
-        if (value.length < 1) return;
+        if (!value) return;
 
         dispatch({
           type: TodoActionsTypes.ADD_ITEM,
           payload: { title: value },
         });
+
         target.value = '';
       }
     },

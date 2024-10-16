@@ -1,26 +1,25 @@
 import { useMemo, useReducer, useState } from 'react';
-import { todoReducer } from './reducer';
+import { todoReducer } from './reducers/todoReducer';
 
 import { Input } from './components/Input/Input';
 import { ListOfItems } from './components/ListOfItems/ListOfItems';
 import { Filters } from './components/Filters/Filters';
 
 import './App.css';
-
-export type Tab = 'all' | 'active' | 'completed';
+import { Tab } from './constants';
 
 function App() {
   const [todos, dispatch] = useReducer(todoReducer, []);
 
-  const [tab, setTab] = useState<Tab>('all');
+  const [tab, setTab] = useState<Tab>(Tab.All);
 
   const filteredItems = useMemo(
     () =>
       todos.filter((item) => {
-        if (tab === 'active') {
+        if (tab === Tab.Active) {
           return !item.completed;
         }
-        if (tab === 'completed') {
+        if (tab === Tab.Completed) {
           return item.completed;
         }
         return item;
@@ -28,12 +27,8 @@ function App() {
     [tab, todos]
   );
 
-  const handleTabChange = (tab: Tab) => {
-    setTab(tab);
-  };
-
   return (
-    <div className="wrapper">
+    <article className="wrapper">
       <h1 className="title">todos</h1>
       <section>
         <Input dispatch={dispatch} placeholder={'What needs to be done?'} />
@@ -41,11 +36,11 @@ function App() {
         <Filters
           todos={filteredItems}
           dispatch={dispatch}
-          onTabChange={handleTabChange}
+          onTabChange={setTab}
           activeTab={tab}
         />
       </section>
-    </div>
+    </article>
   );
 }
 

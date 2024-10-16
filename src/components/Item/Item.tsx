@@ -1,10 +1,11 @@
 import { FC, useCallback } from 'react';
-import { Todo, TodoAction } from '../../reducer';
+import { Button, Checkbox, Icon } from '@gravity-ui/uikit';
+import { Xmark } from '@gravity-ui/icons';
+
+import { Todo, TodoAction } from '../../reducers/todoReducer';
 import { TodoActionsTypes } from '../../constants';
 
 import './Item.css';
-import { Button, Checkbox, Icon } from '@gravity-ui/uikit';
-import { Xmark } from '@gravity-ui/icons';
 
 interface ItemProps {
   todo: Todo;
@@ -27,8 +28,8 @@ export const Item: FC<ItemProps> = ({ todo, dispatch }) => {
     <li>
       <div className="itemWrapper">
         <Checkbox
-          className={completed ? 'checked label' : 'label'}
-          content={title}
+          className={completed ? 'checked' : undefined}
+          content={<p className="label">{title}</p>}
           size="l"
           checked={completed}
           onChange={toggleItem}

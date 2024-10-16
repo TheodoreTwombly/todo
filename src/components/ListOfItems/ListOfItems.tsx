@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Todo, TodoAction } from '../../reducer';
+import { Todo, TodoAction } from '../../reducers/todoReducer';
 import { Item } from '../Item/Item';
 
 import './ListOfItems.css';
