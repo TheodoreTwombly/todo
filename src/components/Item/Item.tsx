@@ -38,6 +38,7 @@ export const Item: FC<ItemProps> = ({ todo, dispatch }) => {
           size="xs"
           className="deleteButton"
           onClick={removeItem}
+          qa="deleteTodoButton"
         >
           <Icon data={Xmark} />
         </Button>
