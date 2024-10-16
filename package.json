@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "serve": "vite preview",
     "deploy": "gh-pages -d dist",
+    "test": "vitest ./tests/unit/",
     "e2e": "npx playwright test",
     "e2e-update": "npx playwright test --update-snapshots"
   },
@@ -30,6 +31,7 @@
     "globals": "^15.9.0",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.7.0",
-    "vite": "^5.4.8"
+    "vite": "^5.4.8",
+    "vitest": "^2.1.3"
   }
 }

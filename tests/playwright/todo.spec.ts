@@ -5,11 +5,6 @@ test.describe('Управление задачей', () => {
     await page.goto('/');
   });
 
-  test('Отображение поля ввода', async ({ page }) => {
-    const input = page.getByPlaceholder('What needs to be done?');
-    await expect(input).toBeVisible();
-  });
-
   test('Добавление задачи', async ({ page }) => {
     const input = page.getByPlaceholder('What needs to be done?');
     await expect(input).toBeVisible();
